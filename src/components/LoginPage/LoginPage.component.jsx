@@ -2,13 +2,13 @@ import React from "react";
 import Login from "../Login/Login.component";
 import { LeftBG, RightBG } from "./LoginPage.styles";
 
-const LoginPage = () => {
+const LoginPage = ({setIsLogin}) => {
   return (
     <div className="row">
       <LeftBG className="col-sm-12 col-md-3 position-relative vh-100">
-        <div className="row justify-content-center">
+        <div className="row justify-content-center align-items-center h-100">
           <div className="col-10">
-            <Login />
+            <Login setIsLogin={setIsLogin}/>
           </div>
         </div>
       </LeftBG>

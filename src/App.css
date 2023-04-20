@@ -1,0 +1,53 @@
+.dashboard-enter {
+    opacity: 0;
+  }
+  
+  .dashboard-enter-active {
+    opacity: 1;
+    transition: opacity 500ms;
+  }
+  
+  .dashboard-exit {
+    opacity: 1;
+  }
+  
+  .dashboard-exit-active {
+    opacity: 0;
+    transition: opacity 500ms;
+  }
+  
+  .login-enter {
+    opacity: 0;
+  }
+  
+  .login-enter-active {
+    opacity: 1;
+    transition: opacity 500ms;
+  }
+  
+  .login-exit {
+    opacity: 0;
+  }
+  
+  .login-exit-active {
+    opacity: 1;
+    transition: opacity 500ms;
+  }
+  
+  .loading-enter {
+    opacity: 0;
+  }
+  
+  .loading-enter-active {
+    opacity: 1;
+    transition: opacity 500ms;
+  }
+  
+  .loading-exit {
+    opacity: 1;
+  }
+  
+  .loading-exit-active {
+    opacity: 0;
+    transition: opacity 500ms;
+  }

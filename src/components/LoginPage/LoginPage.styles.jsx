@@ -10,4 +10,8 @@ export const RightBG = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  @media (max-width:767px){
+    display: none;
+  }
 `;

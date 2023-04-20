@@ -3,20 +3,22 @@ import { DynamicInputStyles } from "./DynamicInput.styles";
 
 const DynamicInput = ({
   type,
+  placeholder,
+  onChange,
   width = '100%',
   fontSize = '14px',
-  borderColor ='var(--primary-color)',
+  hoveredBorderColor ='var(--primary-color)',
   borderRadius = '4px',
   padding,
   marginBottom,
   transition = '.15s ease-in-out,box-shadow .15s ease-in-out',
-  placeholder
 }) => (
   <DynamicInputStyles
     type={type}
+    onChange={onChange}
     width={width}
     fontSize={fontSize}
-    borderColor={borderColor}
+    hoveredBorderColor={hoveredBorderColor}
     borderRadius={borderRadius}
     padding={padding}
     marginBottom={marginBottom}

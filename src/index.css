@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
 :root {
   --primary-color: #1761fd;
   --primary-color-linear: linear-gradient(
@@ -7,25 +8,54 @@
     #1761fd 0%,
     rgba(23, 97, 253, 0.6)
   );
+  --secondary-gradient: linear-gradient(45deg, #59C4BC, #637AAE);
+
+  --dark-blue:#323A45;
+  --faded-blue: #7081b9;
+  --text-muted: #9A9A9A;
+  --font-gray: #555555;
+  --body-color: #fcfcfc;
+  --card-color: #ffffff;
+  --box-shadow-light:#ececec;
+  --icon-color:#a6aed4;
+
+  --color-yellow: #ffb822;
+  --color-red: #f14b4b;
+  --color-green: #1eca7b;
 
   --font-primary:'Nunito', sans-serif;
   --font-secondary: 'Space Mono', monospace;
 }
 
 * {
-  padding: 0;
-  margin: 0;
+  padding: 0 ;
+  margin: 0 ;
+  outline: none !important;
   box-sizing: border-box;
 }
 
 body{
+  overflow-x: hidden;
+  overflow-y: hidden;
   font-family: var(--font-primary) !important;
+  background-color: var(--body-color);
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
+  outline: none !important;
 }
 
 ul {
   list-style-type: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+p{
+  margin: 0 !important;
+}
+
+button{
+  border: none;
 }

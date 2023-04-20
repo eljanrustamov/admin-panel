@@ -9,6 +9,7 @@ const DynamicButton = ({
   hoveredBackgroundColor = "rgba(22,97,255,0.8)",
   color = "#fff",
   padding = "8px",
+  marginTop,
   border="none",
   borderRadius = "5px",
   children
@@ -22,6 +23,7 @@ const DynamicButton = ({
       hoveredBackgroundColor={hoveredBackgroundColor}
       color={color}
       padding={padding}
+      marginTop={marginTop}
       border={border}
       hoveredBorder="1px solid var(--primary-color)"
       borderRadius={borderRadius}
