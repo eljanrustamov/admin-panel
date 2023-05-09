@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^37.1.0",
+    "@ckeditor/ckeditor5-react": "^6.0.0",
     "@popperjs/core": "^2.11.6",
     "@react-hook/window-size": "^3.1.1",
     "@supabase/supabase-js": "^2.8.0",
@@ -16,15 +18,20 @@
     "formik": "^2.2.9",
     "js-cookie": "^3.0.1",
     "react": "^18.2.0",
+    "react-calendar": "^4.2.1",
+    "react-clock": "^4.2.0",
+    "react-datetime-picker": "^5.0.3",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-is": ">= 16.8.0",
+    "react-loader-spinner": "^5.3.4",
     "react-modern-drawer": "^1.2.0",
     "react-responsive": "^9.0.2",
     "react-sizeme": "^3.0.2",
     "react-toastify": "^9.1.2",
     "react-transition-group": "^4.4.5",
     "reactjs-popup": "^2.0.5",
+    "sass": "^1.62.1",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {

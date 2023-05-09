@@ -51,8 +51,6 @@ const Login = ({ setIsLogin }) => {
         <DynamicButton type="submit" marginTop="16px">
           LOGIN
         </DynamicButton>
-
-        <button>Elcan</button>
       </form>
     </LoginWrapper>
   );

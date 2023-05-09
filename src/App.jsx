@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
+import "./App.scss";
 import { CSSTransition } from "react-transition-group";
 import LoginPage from "./components/LoginPage/LoginPage.component";
 import Dashboard from "./components/Dashboard/Dashboard.component";

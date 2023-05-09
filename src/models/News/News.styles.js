@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SlidersMainStyled = styled.div`
+export const NewsMainStyled = styled.div`
   ${({ forWidth }) => `
     width: calc(100% - ${forWidth});
   `}
@@ -49,10 +49,10 @@ export const SlidersMainStyled = styled.div`
   }
 `;
 
-export const SlidersDisplayStyled = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+export const NewsDisplayStyled = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
   table {
     width: 100%;
     max-width: 100%;
@@ -89,5 +89,3 @@ export const SlidersDisplayStyled = styled.div`
     }
   }
 `;
-
-

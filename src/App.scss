@@ -51,3 +51,26 @@
     opacity: 0;
     transition: opacity 500ms;
   }
+
+
+/* React Date time picker */
+
+.react-datetime-picker{
+  width: 100%;
+
+  .react-datetime-picker__wrapper{
+    padding: 12px 8px;
+    border-radius: 7px;
+    border-color: #ddd;
+  }
+}
+
+//  Ck editor
+
+.ck-focused, .ck-blurred{
+  min-height: 300px !important;
+  padding: 15px !important;
+}
+
+
+

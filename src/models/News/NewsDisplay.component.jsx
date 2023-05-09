@@ -1,47 +1,47 @@
 import React, { useState, useEffect } from "react";
 import { BiEdit } from "react-icons/bi";
 import { RiDeleteBin6Fill } from "react-icons/ri";
-import { SlidersDisplayStyled } from "./Sliders.styles";
+import { NewsDisplayStyled } from "./News.styles";
 import supabase from "../../config/supabaseConfig";
 import { toast } from "react-toastify";
 import { TailSpin } from "react-loader-spinner";
 
-const SlidersDisplay = ({
+const NewsDisplay = ({
   isEditPageShow,
   setIsEditPageShow,
-  setActiveSliderItem,
+  setActiveNewsItem,
 }) => {
-  const [slidersData, setSlidersData] = useState();
-
+  const [NewsData, setNewsData] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
   //
   const notify = (message) => toast.success(message);
 
-  const getSlidersData = async () => {
-    const { data, error } = await supabase.from("Sliders").select();
-    setSlidersData(data);
+  const getNewsData = async () => {
+    const { data, error } = await supabase.from("News").select();
+    setNewsData(data);
     setIsLoading(false);
   };
-  const handleClickEdit = (slider) => {
+
+  const handleClickEdit = (news) => {
     setIsEditPageShow(!isEditPageShow);
-    setActiveSliderItem(slider);
+    setActiveNewsItem(news);
   };
-  const removeSliderItem = async (id) => {
+  const removeNewsItem = async (id) => {
     setIsLoading(true);
-    await supabase.from("Sliders").delete().eq("id", id);
-    notify(`[ID${id}]:🔴 Slider removed!`);
-    getSlidersData();
+    await supabase.from("News").delete().eq("id", id);
+    notify(`[ID${id}]:🔴 Item removed!`);
+    getNewsData();
   };
 
-  // get sliders data
+  // get News data
   useEffect(() => {
     setIsLoading(true);
-    getSlidersData();
+    getNewsData();
   }, []);
 
   return (
-      <SlidersDisplayStyled>
+      <NewsDisplayStyled>
         {isLoading ? (
           <TailSpin
             height="100"
@@ -58,30 +58,35 @@ const SlidersDisplay = ({
             <thead>
               <tr>
                 <th scope="col">ID</th>
+                <th scope="col">Banner</th>
+                <th scope="col">Author</th>
                 <th scope="col">Title</th>
-                <th scope="col">Body</th>
-                <th scope="col">Image Url</th>
-                <th scope="col">Actions</th>
+                <th scope="col">Description</th>
+                <th scope="col">Content</th>
+                <th scope="col">Published</th>
               </tr>
             </thead>
             <tbody>
-              {slidersData?.map((slider) => (
-                <tr key={slider.id}>
-                  <th scope="row">{slider.id}</th>
-                  <td>{slider.head}</td>
-                  <td>{slider.body}</td>
-                  <td>{slider.img}</td>
+              {NewsData?.map((news) => (
+                <tr key={news.id}>
+                  <th scope="row">{news.id}</th>
+                  <td>{news.banner}</td>
+                  <td>{news.author}</td>
+                  <td>{news.title}</td>
+                  <td>{news.description}</td>
+                  <td>{news.content}</td>
+                  <td>{news.published}</td>
                   <td className="actions">
                     <BiEdit
                       size={30}
                       color={"var(--color-yellow)"}
-                      onClick={() => handleClickEdit(slider)}
+                      onClick={() => handleClickEdit(news)}
                       className="mb-3"
                     />
                     <RiDeleteBin6Fill
                       size={30}
                       color={"var(--color-red)"}
-                      onClick={() => removeSliderItem(slider.id)}
+                      onClick={() => removeNewsItem(news.id)}
                     />
                   </td>
                 </tr>
@@ -89,8 +94,8 @@ const SlidersDisplay = ({
             </tbody>
           </table>
         )}
-      </SlidersDisplayStyled>
+      </NewsDisplayStyled>
   );
 };
 
-export default SlidersDisplay;
+export default NewsDisplay;

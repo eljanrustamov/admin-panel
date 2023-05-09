@@ -4,50 +4,50 @@ import supabase from "../../config/supabaseConfig";
 import { toast } from "react-toastify";
 
 
-const SlidersEdit = ({ activeSliderItem, setIsEditPageShow }) => {
+const VolunteersEdit = ({ activeVolunteersItem, setIsEditPageShow }) => {
 
   const notify = (message) => toast.success(message);
 
   // form
   const validate = (values) => {
     const errors = {};
-    if (!values.head) {
-      errors.head = "Required";
+
+    if (!values.name) {
+      errors.name = "*Required";
+    } else if (values.name.length < 4) {
+      errors.name = "Must be 4 characters or more";
     }
 
-    if (!values.body) {
-      errors.body = "Required";
-    } else if (values.body.length < 4) {
-      errors.body = "Must be 4 characters or more";
-    }
-    if (!values.img) {
-      errors.img = "Required";
+    if (!values.role) {
+      errors.role = "*Required";
+    } else if (values.role.length < 2) {
+      errors.role = "Must be 2 characters or more";
     }
     return errors;
   };
   
   const formik = useFormik({
     initialValues: {
-      id: activeSliderItem.id,
-      head: activeSliderItem.head,
-      body: activeSliderItem.body,
-      img: activeSliderItem.img,
+      id: activeVolunteersItem.id,
+      name: activeVolunteersItem.name,
+      role: activeVolunteersItem.role,
+      img: activeVolunteersItem.img
     },
     validate,
     onSubmit: async (values, { resetForm }) => {
       const { error } = await supabase
-        .from("Sliders")
+        .from("Volunteers")
         .update({
-          head: values.head,
-          body: values.body,
-          img: values.img,
+          name: values.name,
+          role: values.role,
+          img: values.img
         })
         .match({ id: values.id });
 
       if (error) {
         console.error(error.message);
       } else {
-        notify("Slider updated! 👍");
+        notify("Volunteer updated! 👍");
         resetForm();
         setIsEditPageShow(false);
       }
@@ -57,40 +57,40 @@ const SlidersEdit = ({ activeSliderItem, setIsEditPageShow }) => {
   return (
     <form onSubmit={formik.handleSubmit}>
       <div className="mb-3">
-        <label htmlFor="head" className="form-label">
-          Head
+        <label htmlFor="name" className="form-label">
+          Name
         </label>
         <input
           type="text"
           className="form-control"
-          id="head"
+          id="name"
           onChange={formik.handleChange}
-          value={formik.values.head}
+          value={formik.values.name}
         />
-        {formik.errors.head ? (
-          <div className="text-danger">{formik.errors.head}</div>
+        {formik.errors.name ? (
+          <div className="text-danger">{formik.errors.name}</div>
         ) : null}
       </div>
 
       <div className="mb-3">
-        <label htmlFor="body" className="form-label">
-          Body
+        <label htmlFor="role" className="form-label">
+          Role
         </label>
         <input
           type="text"
           className="form-control"
-          id="body"
+          id="role"
           onChange={formik.handleChange}
-          value={formik.values.body}
+          value={formik.values.role}
         />
-        {formik.errors.body ? (
-          <div className="text-danger">{formik.errors.body}</div>
+        {formik.errors.role ? (
+          <div className="text-danger">{formik.errors.role}</div>
         ) : null}
       </div>
 
       <div className="mb-3">
-        <label htmlFor="body" className="form-label">
-          Image Url
+        <label htmlFor="img" className="form-label">
+          img
         </label>
         <input
           type="text"
@@ -111,4 +111,4 @@ const SlidersEdit = ({ activeSliderItem, setIsEditPageShow }) => {
   );
 };
 
-export default SlidersEdit;
+export default VolunteersEdit;
